@@ -1,8 +1,6 @@
 import requests
 from requests import get
 from bs4 import BeautifulSoup as beauty
-#from selenium import webdriver
-#from webdriver_manager.chrome import ChromeDriverManager as cdm
 
 #To get currencies values and stuff
 def getvalues(content):
@@ -15,9 +13,6 @@ def getvalues(content):
 	return currencies
 
 links = ["https://monitordolarvenezuela.com/"]
-
-#driver = webdriver.Chrome(cdm().install())
-#driver.get(links[0])
 page = get(links[0])
 if page.status_code == 200:
 	cont = beauty(page.content, 'html.parser').find_all(class_ = 'box-calcmd text-center')
